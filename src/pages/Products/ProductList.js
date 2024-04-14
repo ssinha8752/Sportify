@@ -8,8 +8,8 @@ export const ProductList = () => {
   const [show, setShow] = useState(false)
   const [products, setProducts]=useState([]);
   const search = useLocation().search;
+  console.log(search)
   const searchTerms = new URLSearchParams(search).get("q");
-  console.log(searchTerms)
 
 
   useEffect(()=>{
@@ -19,7 +19,7 @@ export const ProductList = () => {
       setProducts(data);
     }
     fetchProducts();
-  },[])
+  },[search])
 
   return (
     <main>
