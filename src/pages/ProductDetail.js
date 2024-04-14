@@ -7,15 +7,16 @@ export const ProductDetail = () => {
     const [product,setProduct]=useState([])
     const params=useParams();
 
+    const {id}=params;
+
     useEffect(()=>{
         async function fetchProduct(){
-            const response=await fetch(`http://localhost:8000/products/${params.id}`)
+            const response=await fetch(`http://localhost:8000/products/${id}`)
             const data = await response.json()
-            console.log(product,data)
             setProduct(data);
         }
         fetchProduct();
-    },[])
+    },[id])
 
 
     return (
