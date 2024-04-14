@@ -6,7 +6,7 @@ import { Allroutes } from './routes/Allroutes';
 
 function App() {
   return (
-    <div className='App'>
+    <div className='App dark:bg-darkbg'>
       <Header/>
       <Allroutes/>
       <Footer/>
