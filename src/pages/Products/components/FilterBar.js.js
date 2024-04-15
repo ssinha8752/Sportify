@@ -1,4 +1,7 @@
+import { useFilter } from "../../../context/FilterContext"
+
 export const FilterBar = ({show,setShow}) => {
+      const {dispatch,state}=useFilter();
     return (
       <section className="filter">
           <div id="drawer-disable-body-scrolling" className={`fixed z-40 h-screen p-5 overflow-y-auto bg-white w-72 dark:bg-gray-800 transition-transhtmlForm left-0 top-0 transhtmlForm-none`} tabIndex="-1" aria-labelledby="drawer-disable-body-scrolling-label" aria-modal="true" role="dialog">
@@ -43,7 +46,7 @@ export const FilterBar = ({show,setShow}) => {
                     <li className="mt-1 mb-5">
                       <span className="font-semibold">Other Filters</span>
                       <div className="flex items-center my-1">
-                          <input id="best-seller" type="checkbox" value="" className="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 dark:bg-gray-700 dark:border-gray-600" />
+                          <input onClick={()=>dispatch({type:"BEST_SELLER", payload:{bestSellerOnly: !state.bestSellerOnly}})} id="best-seller" type="checkbox" value="" className="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 dark:bg-gray-700 dark:border-gray-600" />
                           <label htmlFor="best-seller" className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Best Seller Only</label>
                       </div>
                       <div className="flex items-center my-1">

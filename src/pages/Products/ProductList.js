@@ -11,6 +11,7 @@ export const ProductList = () => {
 
   useTitle("Collections")
   const [show, setShow] = useState(false)
+  const [bestSellerButton, setBestSellerButton] = useState(false)
   //const [products, setProducts]=useState([]);
   const search = useLocation().search;
   const searchTerms = new URLSearchParams(search).get("q");
@@ -43,7 +44,7 @@ export const ProductList = () => {
             ))}
       </div>  
     </section>
-    {show && <FilterBar show={show} setShow={setShow}/>}
+    {show && <FilterBar show={show} setShow={setShow} bestSellerButton={bestSellerButton} setBestSellerButton={setBestSellerButton}/>}
   </main> 
   )
 }
