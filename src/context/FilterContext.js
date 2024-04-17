@@ -1,26 +1,26 @@
 import { createContext, useContext, useReducer } from "react"
-import { filterReducer } from "../reducers/FilterReducer";
+import {filterReducer } from "../reducers/FilterReducer"
 
 const filterInitialState = {
-    productList:[],
+    productList: [],
     onlyInStock: false,
     bestSellerOnly: false,
     sortBy: null,
-    rating: null
+    ratings: null
 }
 
 const FilterContext = createContext(filterInitialState);
 
 export const FilterProvider = ({children}) => {
-    const [state,dispatch]=useReducer(filterReducer,filterInitialState);
+    const [state, dispatch] = useReducer(filterReducer, filterInitialState);
 
     function initialProductList(products){
         dispatch({
-            type:"PRODUCT_LIST",
-            payload:{
-                products:products 
+            type: "PRODUCT_LIST",
+            payload: {
+                products: products
             }
-        })
+        });
     }
 
     function bestSeller(products){
@@ -60,10 +60,10 @@ export const FilterProvider = ({children}) => {
     const filteredProductList = rating(sort(inStock(bestSeller(state.productList))));
 
     const value = {
-        products:filteredProductList,
-        initialProductList,
-        state,
-        dispatch
+        state, 
+        dispatch,
+        products: filteredProductList,
+        initialProductList
     }
     return (
         <FilterContext.Provider value={value}>
@@ -73,6 +73,6 @@ export const FilterProvider = ({children}) => {
 }
 
 export const useFilter = () => {
-    const context=useContext(FilterContext)
+    const context = useContext(FilterContext);
     return context;
 }
