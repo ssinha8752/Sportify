@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { ScrolltoTop } from './components/Other/ScrolltoTop';
 import { FilterProvider } from './context/FilterContext';
 
@@ -12,6 +14,7 @@ root.render(
     <BrowserRouter>
     <FilterProvider>
     <ScrolltoTop/>
+    <ToastContainer/>
     <App />
     </FilterProvider>
     </BrowserRouter>
