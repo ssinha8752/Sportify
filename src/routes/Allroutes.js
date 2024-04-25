@@ -8,6 +8,7 @@ import { Login } from "../pages/Login"
 import { Register } from "../pages/Register"
 import { CartPage } from "../pages/Cart/CartPage"
 import { ProtectedRoute } from "./ProtectedRoute"
+import { OrderPage } from "../pages/Order/OrderPage"
 
 export const Allroutes = () => {
   return (
@@ -19,7 +20,7 @@ export const Allroutes = () => {
         <Route path="/login" element={<Login/>}/>
         <Route path="/register" element={<Register/>}/>
         <Route path="/cart" element={<ProtectedRoute><CartPage/></ProtectedRoute>}/>
-
+        <Route path="/order" element={<ProtectedRoute><OrderPage/></ProtectedRoute>}/>
     </Routes>
     </>
   )
