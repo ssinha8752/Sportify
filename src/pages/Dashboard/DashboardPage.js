@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useCart } from "../../context/CartContext"
 import { DashbaordCart } from "./components/DashboardCart"
 import { DashbaordEmpty } from "./components/DashboardEmpty"
+import { getUserOrders } from "../../services/dataService";
 
 export const DashbaordPage = () => {
 
@@ -11,12 +12,7 @@ export const DashbaordPage = () => {
 
     useEffect(()=>{
         async function fetchOrders(){
-            const response = await fetch(`http://localhost:8000/660/orders?user.id=${cbid}`,{
-                method:"GET",
-                headers:{"Content-Type":"application/json",Authorization: `Bearer ${token}`}
-            });
-            const data = await response.json();
-            console.log(data);
+            const data=await getUserOrders();
             setOrders(data)
         }
         fetchOrders();
