@@ -51,7 +51,7 @@ export const Checkout = ({setCheckout}) => {
         navigate("/order",{state: {data: data, status: true}});
         }
         catch{
-            navigate("/order",{state: {stats: false}});
+            navigate("/order",{state: {status: false}});
         }
     }
 
