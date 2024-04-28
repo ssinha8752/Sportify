@@ -6,6 +6,7 @@ export async function getProductList(searchTerms){
     }
     const data = await response.json();
     return data;
+    
 }
 
 export async function getProduct(id){
