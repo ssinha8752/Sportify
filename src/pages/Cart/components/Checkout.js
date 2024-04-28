@@ -8,8 +8,6 @@ export const Checkout = ({setCheckout}) => {
 
     const {total, cartList, clearCart}=useCart();
     const [user,setUser]=useState({});
-    const token = JSON.parse(sessionStorage.getItem("token"));
-    const cbid = JSON.parse(sessionStorage.getItem("cbid"));
     const navigate=useNavigate();
 
     useEffect(()=>{

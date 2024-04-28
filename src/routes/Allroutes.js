@@ -8,7 +8,6 @@ import { Login } from "../pages/Login"
 import { Register } from "../pages/Register"
 import { CartPage } from "../pages/Cart/CartPage"
 import { ProtectedRoute } from "./ProtectedRoute"
-import { OrderPage } from "../pages/Order/OrderPage"
 import { DashbaordPage } from "../pages/Dashboard/DashboardPage"
 import { PageNotFound } from "../pages/PageNotFound"
 

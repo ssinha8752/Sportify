@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { useCart } from "../../context/CartContext"
 import { DashbaordCart } from "./components/DashboardCart"
 import { DashbaordEmpty } from "./components/DashboardEmpty"
 import { getUserOrders } from "../../services/dataService";
@@ -8,8 +7,6 @@ import { toast } from "react-toastify";
 export const DashbaordPage = () => {
 
     const [orders,setOrders]=useState([]);
-    const token = JSON.parse(sessionStorage.getItem("token"));
-    const cbid = JSON.parse(sessionStorage.getItem("cbid"));
 
     useEffect(()=>{
         async function fetchOrders(){
