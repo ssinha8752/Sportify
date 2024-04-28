@@ -3,6 +3,7 @@ import { Rating } from "../components/Elements/Rating"
 import { useParams } from "react-router-dom"
 import { useCart } from "../context/CartContext"
 import { getProduct } from "../services/productService"
+import { toast } from "react-toastify"
 
 export const ProductDetail = () => {
 
@@ -24,8 +25,13 @@ export const ProductDetail = () => {
 
     useEffect(()=>{
         async function fetchProduct(){
+          try{
             const data=await getProduct(id);
             setProduct(data);
+          }
+          catch(error){
+            toast.error(error.message)
+          }
         }
         fetchProduct();
     },[id])

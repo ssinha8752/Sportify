@@ -13,7 +13,10 @@ export async function fetchUser(){
             "Content-Type":"application/json", Authorization: `Bearer ${browserData.token}` 
         }
     }
-    const response= await fetch(`http://localhost:8000/600/users/${browserData.cbid}`,requestOptions);
+    const response= await fetch(`${process.env.REACT_APP_HOST}/600/users/${browserData.cbid}`,requestOptions);
+    if(!response.ok){
+        throw {message: response.statusText, status: response.status}
+    }
     const data=await response.json();
     return data;
 }
@@ -21,12 +24,15 @@ export async function fetchUser(){
 export async function getUserOrders(){
     const token = JSON.parse(sessionStorage.getItem("token"));
     const cbid = JSON.parse(sessionStorage.getItem("cbid"));
-    const response = await fetch(`http://localhost:8000/660/orders?user.id=${cbid}`,{
-                method:"GET",
-                headers:{"Content-Type":"application/json",Authorization: `Bearer ${token}`}
-            });
-            const data = await response.json();
-            return data;
+    const response = await fetch(`${process.env.REACT_APP_HOST}/660/orders?user.id=${cbid}`,{
+        method:"GET",
+        headers:{"Content-Type":"application/json",Authorization: `Bearer ${token}`}
+    });
+    if(!response.ok){
+        throw {message: response.statusText, status: response.status}
+    }
+    const data = await response.json();
+    return data;
 }
 
 export async function createOrder(cartList, total, user){
@@ -41,13 +47,16 @@ export async function createOrder(cartList, total, user){
             id:user.id
         }
     }
-    const response= await fetch(`http://localhost:8000/660/orders/`,{
+    const response= await fetch(`${process.env.REACT_APP_HOST}/660/orders/`,{
         method:"POST",
         headers:{
             "Content-Type":"application/json", Authorization: `Bearer ${browserData.token}` ,
         },
         body: JSON.stringify(order)
     });
+    if(!response.ok){
+        throw {message: response.statusText, status: response.status}
+    }
     const data = await response.json();
     return data
 }

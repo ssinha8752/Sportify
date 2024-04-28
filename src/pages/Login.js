@@ -11,13 +11,17 @@ export const Login = () => {
 
     async function handleLogin(e){
       e.preventDefault();
-      const authDetail={
-        email: email.current.value,
-        password: password.current.value
+      try{
+        const authDetail={
+          email: email.current.value,
+          password: password.current.value
+        }
+        const data=login(authDetail)
+        data.accessToken?navigate("/products"):toast.error(data)
       }
-      const data=login(authDetail)
-      data.accessToken?navigate("/products"):toast.error(data)
-
+      catch(error){
+        toast.error(error.message);
+      }
     }
 
 

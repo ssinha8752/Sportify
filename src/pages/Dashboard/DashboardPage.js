@@ -3,6 +3,7 @@ import { useCart } from "../../context/CartContext"
 import { DashbaordCart } from "./components/DashboardCart"
 import { DashbaordEmpty } from "./components/DashboardEmpty"
 import { getUserOrders } from "../../services/dataService";
+import { toast } from "react-toastify";
 
 export const DashbaordPage = () => {
 
@@ -12,8 +13,13 @@ export const DashbaordPage = () => {
 
     useEffect(()=>{
         async function fetchOrders(){
-            const data=await getUserOrders();
+            try{
+              const data=await getUserOrders();
             setOrders(data)
+            }
+            catch(error){
+              toast.error(error.message)
+            }
         }
         fetchOrders();
     },[])
