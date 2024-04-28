@@ -5,6 +5,7 @@ import { Header } from './components/Layout/Header';
 import { Allroutes } from './routes/Allroutes';
 
 function App() {
+  document.title="Sportify";
   return (
     <div className='App dark:bg-darkbg'>
       <Header/>
