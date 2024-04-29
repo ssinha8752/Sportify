@@ -24,9 +24,11 @@ export const Login = () => {
       }
     }
 
-    function handleLoginAsGuest(){
-      email.current.value="guest@gmail.com"
-      password.current.value="12345678"
+    async function handleLoginAsGuest(){
+      email.current.value="guest@gmail.com";
+      password.current.value="12345678";
+      const data=await login({email: email.current.value,password: password.current.value});
+      data.accessToken?navigate("/products"):toast.error(data)
     }
 
 
