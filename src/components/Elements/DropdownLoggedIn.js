@@ -26,7 +26,7 @@ export const DropdownLoggedIn = ({setDropdown}) => {
     function handleLogout(){
         logout()
         setDropdown(false)
-        navigate("/")
+        navigate("/Login")
     }
 
     return (

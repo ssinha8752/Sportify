@@ -10,6 +10,7 @@ import { CartPage } from "../pages/Cart/CartPage"
 import { ProtectedRoute } from "./ProtectedRoute"
 import { DashbaordPage } from "../pages/Dashboard/DashboardPage"
 import { PageNotFound } from "../pages/PageNotFound"
+import { OrderPage } from "../pages/Order/OrderPage"
 
 export const Allroutes = () => {
   return (
@@ -22,6 +23,7 @@ export const Allroutes = () => {
         <Route path="/register" element={<Register/>}/>
         <Route path="/cart" element={<ProtectedRoute><CartPage/></ProtectedRoute>}/>
         <Route path="/dashboard" element={<ProtectedRoute><DashbaordPage/></ProtectedRoute>}/>
+        <Route path="/orders" element={<OrderPage/>}/>
         <Route path="*" element={<PageNotFound/>}/>
     </Routes>
     </>

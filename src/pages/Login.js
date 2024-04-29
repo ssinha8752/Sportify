@@ -16,7 +16,7 @@ export const Login = () => {
           email: email.current.value,
           password: password.current.value
         }
-        const data=login(authDetail)
+        const data=await login(authDetail)
         data.accessToken?navigate("/products"):toast.error(data)
       }
       catch(error){
